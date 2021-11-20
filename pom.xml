@@ -20,18 +20,6 @@
 
 
     <repositories>
-        <!-- Bluetooth Snapshots Repo -->
-        <repository>
-            <id>pyx4j-web-snapshot</id>
-            <url>http://repository.pyx4j.com/maven2-snapshot</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-        </repository>
-
 		<repository>
 			<snapshots>
 				<enabled>false</enabled>
@@ -44,83 +32,24 @@
 			<id>jitpack.io</id>
 			<url>https://jitpack.io</url>
 		</repository>
-    </repositories>
+	</repositories>
 
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>com.github.WilliamAHartman</groupId>
-			<artifactId>Jamepad</artifactId>
-			<version>1.4.0</version>
-		</dependency>
-		<dependency>
-			<groupId>uk.co.electronstudio.sdl2gdx</groupId>
-			<artifactId>sdl2gdx</artifactId>
-			<version>1.0.4</version>
-		</dependency>
-		<dependency>
-			<groupId>net.java.jinput</groupId>
-			<artifactId>jinput</artifactId>
-			<version>2.0.9</version>
-		</dependency>
-		<dependency>
-			<groupId>net.java.jinput</groupId>
-			<artifactId>jinput</artifactId>
-			<version>2.0.9</version>
-			<classifier>natives-all</classifier>
-		</dependency>
-
 
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-			<exclusions>
-				<exclusion>
-					<groupId>org.junit.vintage</groupId>
-					<artifactId>junit-vintage-engine</artifactId>
-				</exclusion>
-			</exclusions>
+			<groupId>com.github.kwhat</groupId>
+			<artifactId>jnativehook</artifactId>
+			<version>2.2.1</version>
 		</dependency>
-
 		<dependency>
 			<groupId>com.pi4j</groupId>
 			<artifactId>pi4j-core</artifactId>
 			<version>1.2</version>
 		</dependency>
-		<dependency>
-			<groupId>io.ultreia</groupId>
-			<artifactId>bluecove</artifactId>
-			<version>2.1.1</version>
-		</dependency>
-
-	<dependency>
-		<groupId>net.java.jinput</groupId>
-		<artifactId>jinput</artifactId>
-		<version>2.0.9</version>
-	</dependency>
-	<dependency>
-		<groupId>net.java.jinput</groupId>
-		<artifactId>jinput</artifactId>
-		<version>2.0.9</version>
-		<classifier>natives-all</classifier>
-	</dependency>
 	</dependencies>
-
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-			<plugin>
-				<groupId>com.googlecode.mavennatives</groupId>
-				<artifactId>maven-nativedependencies-plugin</artifactId>
-			</plugin>
-		</plugins>
-	</build>
 
 </project>
