@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>hr.foi</groupId>
 	<artifactId>raspberry-pi</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>raspberry-pi</name>
 	<description>Raspberry pi vehicle</description>
 

@@ -13,16 +13,32 @@ public class RaspberryConfig extends RaspiPin {
     private Pin leftForward;
     private Pin leftBackward;
 
+    public Pin getRightForward() {
+        return rightForward;
+    }
+
     public void setRightForward(int rightForward) {
         this.rightForward = createDigitalPin(rightForward);
+    }
+
+    public Pin getRightBackward() {
+        return rightBackward;
     }
 
     public void setRightBackward(int rightBackward) {
         this.rightBackward = createDigitalPin(rightBackward);
     }
 
+    public Pin getLeftForward() {
+        return leftForward;
+    }
+
     public void setLeftForward(int leftForward) {
         this.leftForward = createDigitalPin(leftForward);
+    }
+
+    public Pin getLeftBackward() {
+        return leftBackward;
     }
 
     public void setLeftBackward(int leftBackward) {
@@ -31,21 +47,5 @@ public class RaspberryConfig extends RaspiPin {
 
     private Pin createDigitalPin(int pinNumber) {
         return createDigitalPin(pinNumber, "GPIO " + pinNumber);
-    }
-
-    public Pin getRightForward() {
-        return rightForward;
-    }
-
-    public Pin getRightBackward() {
-        return rightBackward;
-    }
-
-    public Pin getLeftForward() {
-        return leftForward;
-    }
-
-    public Pin getLeftBackward() {
-        return leftBackward;
     }
 }
