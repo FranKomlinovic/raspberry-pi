@@ -1,6 +1,5 @@
 package hr.foi.raspberrypi.config;
 
-import com.pi4j.io.gpio.Pin;
 import com.pi4j.io.gpio.RaspiPin;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
@@ -8,44 +7,40 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @ConfigurationProperties(prefix = "robot")
 public class RaspberryConfig extends RaspiPin {
-    private Pin rightForward;
-    private Pin rightBackward;
-    private Pin leftForward;
-    private Pin leftBackward;
+    private int rightForward;
+    private int rightBackward;
+    private int leftForward;
+    private int leftBackward;
 
-    public Pin getRightForward() {
+    public int getRightForward() {
         return rightForward;
     }
 
     public void setRightForward(int rightForward) {
-        this.rightForward = createDigitalPin(rightForward);
+        this.rightForward = rightForward;
     }
 
-    public Pin getRightBackward() {
+    public int getRightBackward() {
         return rightBackward;
     }
 
     public void setRightBackward(int rightBackward) {
-        this.rightBackward = createDigitalPin(rightBackward);
+        this.rightBackward = rightBackward;
     }
 
-    public Pin getLeftForward() {
+    public int getLeftForward() {
         return leftForward;
     }
 
     public void setLeftForward(int leftForward) {
-        this.leftForward = createDigitalPin(leftForward);
+        this.leftForward = leftForward;
     }
 
-    public Pin getLeftBackward() {
+    public int getLeftBackward() {
         return leftBackward;
     }
 
     public void setLeftBackward(int leftBackward) {
-        this.leftBackward = createDigitalPin(leftBackward);
-    }
-
-    private Pin createDigitalPin(int pinNumber) {
-        return createDigitalPin(pinNumber, "GPIO " + pinNumber);
+        this.leftBackward = leftBackward;
     }
 }

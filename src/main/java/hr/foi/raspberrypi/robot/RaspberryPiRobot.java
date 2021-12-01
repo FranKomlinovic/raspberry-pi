@@ -9,9 +9,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
+import static com.pi4j.io.gpio.RaspiPin.getPinByName;
+
 @Component
 @Profile("prod")
 public class RaspberryPiRobot implements Robotic {
+    private final GpioController gpio;
     private final GpioPinDigitalOutput rightBackward;
     private final GpioPinDigitalOutput rightForward;
     private final GpioPinDigitalOutput leftBackward;
@@ -19,44 +22,55 @@ public class RaspberryPiRobot implements Robotic {
 
     @Autowired
     public RaspberryPiRobot(final RaspberryConfig raspberryConfig) {
-        final GpioController gpio = GpioFactory.getInstance();
-        rightBackward = gpio.provisionDigitalOutputPin(raspberryConfig.getRightBackward(), "rightBackward", PinState.LOW);
-        rightForward = gpio.provisionDigitalOutputPin(raspberryConfig.getRightForward(), "rightForward", PinState.LOW);
-        leftBackward = gpio.provisionDigitalOutputPin(raspberryConfig.getLeftBackward(), "leftBackward", PinState.LOW);
-        leftForward = gpio.provisionDigitalOutputPin(raspberryConfig.getLeftForward(), "leftForward", PinState.LOW);
+        // create gpio controller
+        this.gpio = GpioFactory.getInstance();
 
+        rightForward = createGPIO(raspberryConfig.getRightForward(), "rightForward");
+        rightBackward = createGPIO(raspberryConfig.getRightBackward(), "rightBackward");
+        leftForward = createGPIO(raspberryConfig.getLeftForward(), "leftForward");
+        leftBackward = createGPIO(raspberryConfig.getLeftBackward(), "leftBackward");
     }
 
     @Override
     public void forward() {
+        System.out.println("Moving raspberry forward");
         rightForward.high();
         leftForward.high();
     }
 
     @Override
     public void backward() {
+        System.out.println("Moving raspberry backward");
         rightBackward.high();
         leftBackward.high();
     }
 
     @Override
     public void left() {
+        System.out.println("Moving raspberry left");
         leftBackward.high();
         rightForward.high();
     }
 
     @Override
     public void right() {
+        System.out.println("Moving raspberry right");
         rightBackward.high();
         leftForward.high();
     }
 
     @Override
     public void neutralize() {
+        System.out.println("Neutralizing raspberry");
         rightForward.low();
         rightBackward.low();
         leftBackward.low();
         leftForward.low();
+    }
+
+    private GpioPinDigitalOutput createGPIO(Integer pinNumber, String position) {
+        GpioPinDigitalOutput output = gpio.provisionDigitalOutputPin(getPinByName("GPIO " + pinNumber), position, PinState.LOW);
+        return output;
     }
 
 }
