@@ -31,11 +31,6 @@ public class RaspberryRobotController implements KeyListener {
         robotic.forward();
         Thread.sleep(500);
         robotic.neutralize();
-
-    }
-
-    @Override
-    public void keyTyped(KeyEvent e) {
     }
 
     @Override
@@ -47,5 +42,9 @@ public class RaspberryRobotController implements KeyListener {
     @Override
     public void keyReleased(KeyEvent e) {
         robotic.neutralize();
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
     }
 }
