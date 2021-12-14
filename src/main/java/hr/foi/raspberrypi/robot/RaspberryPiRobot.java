@@ -69,8 +69,7 @@ public class RaspberryPiRobot implements Robotic {
     }
 
     private GpioPinDigitalOutput createGPIO(Integer pinNumber, String position) {
-        GpioPinDigitalOutput output = gpio.provisionDigitalOutputPin(getPinByName("GPIO " + pinNumber), position, PinState.LOW);
-        return output;
+        return gpio.provisionDigitalOutputPin(getPinByName("GPIO " + pinNumber), position, PinState.LOW);
     }
 
 }

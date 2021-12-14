@@ -1,12 +1,11 @@
 package hr.foi.raspberrypi.config;
 
-import com.pi4j.io.gpio.RaspiPin;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @ConfigurationProperties(prefix = "robot")
-public class RaspberryConfig extends RaspiPin {
+public class RaspberryConfig {
     private int rightForward;
     private int rightBackward;
     private int leftForward;
